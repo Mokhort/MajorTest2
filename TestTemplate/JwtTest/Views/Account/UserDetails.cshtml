@@ -1,0 +1,32 @@
+﻿@model JwtTest.Models.UserModel
+@{
+    ViewData["Title"] = $"Информация о пользователе {Model.Username}";
+}
+<div>
+    <h4>UserModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        <dt class="col-sm-2">
+            Аватар
+        </dt>
+        <dd class="col-sm-10">
+            <img src="/Account/Avatar?username=@Model.Username" alt="Аватар" height="200" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditUser" asp-route-id="@Model.Id">Редактировать</a> |
+    <a asp-action="ListUsers">К списку пользователей</a>
+</div>
